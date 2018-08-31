@@ -12,11 +12,8 @@ const { typeDef: Post, resolvers: postResolvers } = require("./types/post");
 const Query = gql`
   type Query {
     _empty: String
-    post(id: String!): Post
-    posts: [Post]
   }
 `;
-// TODO: Colocate type Query { ...[types] } in respective ./types/[type].js file
 
 module.exports = makeExecutableSchema({
   typeDefs: [Query, Post],

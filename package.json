@@ -9,9 +9,10 @@
     "aws-sdk": "^2.136.0",
     "dotenv": "^6.0.0",
     "dynamoose": "^0.8.7",
+    "eslint": "^4.19.1",
     "eslint-plugin-react": "^7.4.0",
     "faker": "^4.1.0",
-    "graphql": "^0.11.7",
+    "graphql": "^0.13.2",
     "graphql-tools": "^3.1.1",
     "lodash": "^4.17.10",
     "yamljs": "^0.3.0"

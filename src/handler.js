@@ -1,6 +1,5 @@
 const util = require("util");
-const { ApolloServer /*, gql*/ } = require("apollo-server-lambda");
-// const { makeExecutableSchema } = require("graphql-tools");
+const { ApolloServer } = require("apollo-server-lambda");
 const schema = require("./graphql/schema");
 
 const server = new ApolloServer({ schema });
