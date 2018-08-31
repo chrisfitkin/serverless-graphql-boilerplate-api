@@ -1,13 +1,16 @@
 const { promisify } = require("util");
 const { gql } = require("apollo-server-lambda");
 const posts = require("../../../.seed/posts");
-const PostModel = require("../../models/Post");
+const { PostModel } = require("../../models/Post");
+
+console.log("post.js::PostModel", PostModel);
 
 const typeDef = gql`
   extend type Query {
     post(id: String!): Post
     posts: [Post]
     extendPost: String
+    test: String
   }
 
   type Post {
@@ -22,23 +25,29 @@ const typeDef = gql`
 const resolvers = {
   Query: {
     // post: (root, { id }) => promisify(PostModel.get)({ id }),
-    post: (root, { id }) => {
-      console.log("PostModel.queryOne", id);
+    post: async (root, { id }) => {
+      console.log("post.js::resolvers.Query.post", id);
+      const post = PostModel.get({ id });
+      console.log("post.js::resolvers.Query.posts.get", post);
+      return post;
+    },
+    posts: async (root, args) => {
+      console.log("post.js::resolvers.Query.posts");
+      const scanPosts = await promisify(PostModel.scan)();
+      console.log("post.js::resolvers.Query.posts.scanPosts", scanPosts);
+      return scanPosts;
+    },
+    extendPost: () => "hello extend world",
+    test: () => {
       return new Promise((resolve, reject) => {
-        PostModel.queryOne({ id: { eq: id } }, function(err, post) {
-          console.log("err", err);
+        PostModel.scan().exec(function(err, posts) {
           if (err) reject(err);
-
-          console.log("post", post);
-          resolve(post);
+          // Look at all the posts
+          console.log("posts", posts);
+          resolve(JSON.stringify(posts));
         });
       });
-    },
-    posts: (root, args) => {
-      console.log("PostModel", PostModel);
-      return promisify(PostModel.scan().exec);
-    },
-    extendPost: () => "hello extend world"
+    }
   }
 };
 

@@ -39,6 +39,7 @@ Seed data: `./.seed/[resource].json`
 The following resources were used in part to develop this project.
 
 * https://blog.apollographql.com/modularizing-your-graphql-schema-code-d7f71d5ed5f2
+* https://itnext.io/graphql-mongoose-a-design-first-approach-d97b7f0c869 # Model.populate
 
 
 # GraphQL query endpoint in NodeJS on AWS with DynamoDB
