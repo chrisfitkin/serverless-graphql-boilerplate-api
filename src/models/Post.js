@@ -1,7 +1,7 @@
 const dynamoose = require("./db/dynamoose");
 const { Schema } = dynamoose;
 
-// User Model
+// Post Model
 const postSchema = new Schema({
   id: {
     type: String,
@@ -10,7 +10,7 @@ const postSchema = new Schema({
   },
   title: {
     type: String,
-    rangeKey: true,
+    rangeKey: false,
     index: true // name: titleLocalIndex, ProjectionType: ALL
   },
   body: {
@@ -21,6 +21,6 @@ const postSchema = new Schema({
   }
 });
 
-var PostModel = dynamoose.model("Post", postSchema);
+var PostModel = dynamoose.model("post", postSchema);
 
 module.exports = PostModel;

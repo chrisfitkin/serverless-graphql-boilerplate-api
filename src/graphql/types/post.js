@@ -1,4 +1,7 @@
-const { gql } = require("apollo-server");
+const { promisify } = require("util");
+const { gql } = require("apollo-server-lambda");
+const posts = require("../../../.seed/posts");
+const PostModel = require("../../models/Post");
 
 const typeDef = gql`
   type Post {
@@ -7,9 +10,20 @@ const typeDef = gql`
     body: String
     user: String
   }
-`; // TODO: convert user to type User!
+`;
+// TODO: extend type Query { post: Post }
+// TODO: convert user to type User!
 
-const resolvers = {};
+const resolvers = {
+  Query: {
+    // post: (root, { id }) => promisify(PostModel.get)({ id }),
+    post: (root, { id }) => promisify(PostModel.queryOne)({ id: { eq: id } }),
+    posts: (root, args) => {
+      console.log("PostModel", PostModel);
+      return promisify(PostModel.scan().exec);
+    }
+  }
+};
 
 module.exports = {
   typeDef,

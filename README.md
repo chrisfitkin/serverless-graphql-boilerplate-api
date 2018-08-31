@@ -34,6 +34,12 @@ Seed data: `./.seed/[resource].json`
 
 ---
 
+## References
+
+The following resources were used in part to develop this project.
+
+* https://blog.apollographql.com/modularizing-your-graphql-schema-code-d7f71d5ed5f2
+
 
 # GraphQL query endpoint in NodeJS on AWS with DynamoDB
 
