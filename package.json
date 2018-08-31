@@ -1,0 +1,38 @@
+{
+  "name": "aws-lambda-dynamodb-apollo-graphql-docker",
+  "version": "1.0.0",
+  "description": "A Serverless GraphQL API on AWS Lambda and DynamoDB with local Docker development.",
+  "main": "handler.js",
+  "dependencies": {
+    "apollo-server": "^2.0.5",
+    "apollo-server-lambda": "^2.0.4",
+    "aws-sdk": "^2.136.0",
+    "dotenv": "^6.0.0",
+    "eslint-plugin-react": "^7.4.0",
+    "faker": "^4.1.0",
+    "graphql": "^0.11.7",
+    "lodash": "^4.17.10",
+    "yamljs": "^0.3.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.3",
+    "serverless": "^1.30.1",
+    "serverless-dynamodb-local": "^0.2.33",
+    "serverless-offline": "^3.25.9"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon --watch src --exec serverless offline",
+    "dynamodb:install": "sls dynamodb install",
+    "dynamodb": "sls dynamodb start",
+    "dynamodb:debug": "SLS_DEBUG=* sls dynamodb start",
+    "dynamodb:pid": "sudo lsof -i tcp:8000",
+    "docker": "docker-compose stop && docker-compose up",
+    "docker:stop": "docker-compose stop",
+    "docker:build": "docker-compose build",
+    "docker:rebuild": "docker-compose build --no-cache",
+    "serverless": "serverless"
+  },
+  "author": "",
+  "license": "ISC"
+}

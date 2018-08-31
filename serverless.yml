@@ -1,0 +1,45 @@
+service: serverless-graphql
+
+plugins:
+  - serverless-dynamodb-local
+  - serverless-offline
+
+provider:
+  name: aws
+  runtime: nodejs8.10
+  region: us-east-1
+  stage: dev
+  environment:
+    STAGE: ${self:custom.stage}
+    # DYNAMODB_TABLE: ${self:service}-names-${self:provider.stage}
+  role: defaultRole
+
+functions:
+  graphql:
+    handler: src/handler.graphqlHandler
+    events:
+      - http:
+          path: graphql
+          method: get
+      - http:
+          path: graphql
+          method: post
+
+custom:
+  stage: ${env:SLS_STAGE, opt:stage, self:provider.stage}
+  dynamodb:
+    start:
+      migrate: true
+      seed: true
+      port: 8000
+      host: 0.0.0.0
+    seed:
+      domain:
+        sources:
+          - table: "${self:custom.stage}.posts"
+            sources: [./.seed/posts.js]
+  serverless-offline:
+      host: 0.0.0.0
+
+resources:
+  Resources: ${file(./serverless-dynamic.js):resources}
