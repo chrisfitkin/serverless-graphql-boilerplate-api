@@ -1,6 +1,6 @@
 {
   "name": "aws-serverless-graphql-docker",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "A Serverless GraphQL API on AWS Lambda and DynamoDB with local Docker development.",
   "main": "handler.js",
   "dependencies": {
