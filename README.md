@@ -1,8 +1,3 @@
-<!--
-title: GraphQL query endpoint in NodeJS on AWS with DynamoDB
-description: A single-module GraphQL endpoint with query and mutation functionality.
-layout: Doc
--->
 
 # AWS Lambda DynamoDB Apollo GraphQL Docker
 
@@ -92,13 +87,22 @@ Seed data: `./.seed/[resource].json`
 
 ---
 
-## Dependencies
+## Library Dependencies
+
+### Server 
 
 * Apollo Server
 * Serverless Framework
 * Dynamoose
 * dotenv
 * fakerjs
+
+### Local development
+
+* Docker
+* docker-compose
+* serverless-dynamodb-local
+* serverless-offline
 
 ---
 
