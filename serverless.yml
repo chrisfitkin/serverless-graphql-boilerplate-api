@@ -1,4 +1,4 @@
-service: serverless-graphql
+service: aws-serverless-graphql-docker
 
 plugins:
   - serverless-dynamodb-local
