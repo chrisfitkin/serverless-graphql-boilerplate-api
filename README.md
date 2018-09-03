@@ -12,8 +12,7 @@ A Serverless GraphQL API on AWS Lambda and DynamoDB with local Docker developmen
 
 ```sh
 git clone https://github.com/chrisfitkin/aws-lambda-dynamodb-apollo-graphql-docker.git
-cd server-graphql
-echo -e "AWS_ACCESS_KEY_ID=[my_aws_key]\nAWS_SECRET_ACCESS_KEY=[my_aws_secrty]" > .env
+cd aws-serverless-graphql
 npm run docker
 ```
 
@@ -23,7 +22,7 @@ _note_: You must complete your AWS CLI credentails in the `.env` file at the pro
 
 ```sh
 # Test Query
-curl -G 'http://localhost:3000/graphql' --data-urlencode 'query={ hello }'
+curl -G 'http://localhost:3000/graphql' --data-urlencode 'query={ posts }'
 ```
 
 Apollo Playground: http://localhost:3000/graphql

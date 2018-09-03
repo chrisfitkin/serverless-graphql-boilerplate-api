@@ -1,7 +1,6 @@
 const util = require("util");
 const { merge } = require("lodash");
 const { gql } = require("apollo-server-lambda");
-const { makeExecutableSchema } = require("graphql-tools");
 const { typeDef: Post, resolvers: postResolvers } = require("./types/post");
 // const { typeDef: User, resolvers: userResolvers } = require("./types/user");
 // const {
@@ -15,7 +14,7 @@ const Query = gql`
   }
 `;
 
-module.exports = makeExecutableSchema({
+module.exports = {
   typeDefs: [Query, Post],
   resolvers: merge({}, postResolvers)
-});
+};
