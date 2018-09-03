@@ -213,7 +213,8 @@ The following resources were used in part to develop this project.
 - [x] Provide Dynamoose models in GraphQL context
 - [x] Create sample data with faker.js
 - [ ] Migrate Roadmap to ROADMAP.md with phases
-- [ ] Create User, Post, and Comment resources
+- [x] Create User, Post, and Comment resources
+- [ ] Add testing and test coverage to server, types, schema, and models
 - [ ] Tag project release versions
 - [ ] Add create, edit, and delete Mutations
   - User
@@ -223,7 +224,7 @@ The following resources were used in part to develop this project.
   - Post
 - [ ] Add GraphQL Query examples for posts, comments, and users
 - [ ] Test and document AWS deployment
-- [ ] Rewrite posts.user field as secondary index in Yaml config and Resolvers
+- [ ] Rewrite posts.user field as secondary index in YML config and Resolvers
   - User.posts to query posts.user index
   - User.comments to query comments.user index
   - Comments.user
