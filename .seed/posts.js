@@ -1,11 +1,11 @@
 const faker = require("faker");
+const users = require("./users.js");
 
 const createFakePost = () => ({
   id: faker.random.uuid(),
   title: createTitle(),
   body: faker.lorem.paragraphs(),
-  user: null,
-  foo: "bar"
+  user: users[faker.random.number({ min: 0, max: 1 })].id
 });
 
 const createTitle = () =>

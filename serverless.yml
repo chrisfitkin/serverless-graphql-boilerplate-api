@@ -11,7 +11,7 @@ provider:
   stage: dev
   environment:
     STAGE: ${self:custom.stage}
-    NODE_ENV: prod
+    NODE_ENV: ${self:custom.stage}
   role: defaultRole
 
 functions:
@@ -36,6 +36,8 @@ custom:
     seed:
       domain:
         sources:
+          - table: "${self:custom.stage}.users"
+            sources: [./.seed/users.js]
           - table: "${self:custom.stage}.posts"
             sources: [./.seed/posts.js]
   serverless-offline:

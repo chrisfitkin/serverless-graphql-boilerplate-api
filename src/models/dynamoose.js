@@ -8,11 +8,14 @@ dynamoose.AWS.config.update({
   secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY || "SECRET_ACCESS_KEY"
 });
 if (process.env.NODE_ENV === "dev") {
-  dynamoose.local(process.env.AWS_DYNAMODB_ENDPOINT || "http://localhost:8000");
+  const dynamoDbEndpoint =
+    process.env.AWS_DYNAMODB_ENDPOINT || "http://localhost:8000";
+  console.log("Connecting to DynamoDB in 'local' config at ", dynamoDbEndpoint);
+  dynamoose.local(dynamoDbEndpoint);
 }
 
 dynamoose.setDefaults({
-  create: true, // Create table in DB if it does not exist
+  create: process.env.NODE_ENV === "dev" ? true : false, // Create table in DB if it does not exist
   prefix: `${process.env.STAGE}.`, // Default prefix for all DynamoDB tables
   suffix: "" // Default suffix for all DynamoDB tables
 });

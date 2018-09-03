@@ -14,7 +14,6 @@ services:
     environment:
       - AWS_DYNAMODB_REGION=localhost
       - AWS_DYNAMODB_ENDPOINT=http://dynamodb:8000
-      - NODE_ENV=dev
   dynamodb:
     build: .
     image: app

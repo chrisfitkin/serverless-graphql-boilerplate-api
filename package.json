@@ -36,6 +36,6 @@
     "docker:rebuild": "docker-compose build --no-cache",
     "serverless": "serverless"
   },
-  "author": "",
-  "license": "ISC"
+  "author": "Chris Fitkin @chrisfitkin",
+  "license": "MIT"
 }
