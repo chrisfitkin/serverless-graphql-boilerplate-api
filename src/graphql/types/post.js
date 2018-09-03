@@ -20,15 +20,9 @@ const typeDef = gql`
 
 const resolvers = {
   Query: {
-    // post: (root, { id }) => promisify(PostModel.get)({ id }),
-    // post: async (root, { id }) => {
-    //   console.log("post.js::resolvers.Query.post", id);
-    //   const post = PostModel.get({ id });
-    //   console.log("post.js::resolvers.Query.posts.get", post);
-    //   return post;
-    // },
-    posts: async (root, args, { Post }) => {
-      const scanPosts = await Post.scan().exec();
+    post: (root, { id }, { Post }) => Post.get({ id }),
+    posts: (root, args, { Post }) => {
+      const scanPosts = Post.scan().exec();
       return scanPosts;
     }
   }

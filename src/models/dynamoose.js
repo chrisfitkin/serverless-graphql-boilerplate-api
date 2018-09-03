@@ -7,7 +7,9 @@ dynamoose.AWS.config.update({
   accessKeyId: process.env.AWS_ACCESS_KEY_ID || "ACCESS_KEY_ID",
   secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY || "SECRET_ACCESS_KEY"
 });
-dynamoose.local(process.env.AWS_DYNAMODB_ENDPOINT || "http://localhost:8000");
+if (process.env.NODE_ENV === "dev") {
+  dynamoose.local(process.env.AWS_DYNAMODB_ENDPOINT || "http://localhost:8000");
+}
 
 dynamoose.setDefaults({
   create: true, // Create table in DB if it does not exist
