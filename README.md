@@ -18,15 +18,12 @@ $ npm run docker
 
 ```sh
 # List all posts
-$ curl -G 'http://localhost:3000/graphql' --data-urlencode 'query={ posts }'
+$ curl -G 'http://localhost:3000/graphql' --data-urlencode 'query={ posts { title } }'
 # {
 #   "data": {
-#     "post": {
-#       "id": "8984b296-7d0c-4f86-9e74-543628157eae",
+#     "post": [{
 #       "title": "Occaecati Sit Natus Consequuntur Magnam Perferendis Velit",
-#       "body": "Provident adipisci sit animi sapiente ut voluptatem cumque dolores. Et rerum et omnis iusto quos laudantium sed et. Non nihil laboriosam omnis voluptates facere reiciendis.\n \rAmet maxime repudiandae facilis qui eligendi et praesentium at. Eum sit modi. Unde itaque quos odit deleniti. Voluptatibus placeat molestiae. Dolores iusto repellendus numquam quasi nam. Officia impedit et sunt facere fuga.\n \rBeatae qui doloremque pariatur harum autem consequatur quod aut. Odio autem soluta dicta officiis. In et molestias.",
-#       "user": "{\"NULL\":true}"
-#     }
+#     }, ...]
 #   }
 # }
 
