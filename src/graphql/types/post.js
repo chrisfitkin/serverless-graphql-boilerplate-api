@@ -11,6 +11,7 @@ const typeDef = gql`
     title: String!
     body: String
     user: User
+    comments: [Comment]
   }
 `;
 
@@ -20,7 +21,9 @@ const resolvers = {
     posts: (root, args, { Post }) => Post.scan().exec()
   },
   Post: {
-    user: ({ user }, args, { User }) => User.get({ id: user })
+    user: ({ user }, args, { User }) => User.get({ id: user }),
+    comments: ({ id }, args, { Comment }) =>
+      Comment.scan({ post: { eq: id } }).exec()
   }
 };
 

@@ -10,10 +10,10 @@ const {
   license
 } = require("../../package.json");
 const { typeDef: User, resolvers: userResolvers } = require("./types/user");
-// const {
-//   typeDef: Comment,
-//   resolvers: commentResolvers
-// } = require("./types/comment");
+const {
+  typeDef: Comment,
+  resolvers: commentResolvers
+} = require("./types/comment");
 
 const Query = gql`
   type Query {
@@ -37,6 +37,12 @@ const aboutResolvers = {
 };
 
 module.exports = {
-  typeDefs: [Query, Post, User],
-  resolvers: merge({}, postResolvers, userResolvers, aboutResolvers)
+  typeDefs: [Query, Post, User, Comment],
+  resolvers: merge(
+    {},
+    postResolvers,
+    userResolvers,
+    commentResolvers,
+    aboutResolvers
+  )
 };

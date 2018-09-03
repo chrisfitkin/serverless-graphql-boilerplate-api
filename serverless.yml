@@ -40,6 +40,8 @@ custom:
             sources: [./.seed/users.js]
           - table: "${self:custom.stage}.posts"
             sources: [./.seed/posts.js]
+          - table: "${self:custom.stage}.comments"
+            sources: [./.seed/comments.js]
   serverless-offline:
       host: 0.0.0.0
 

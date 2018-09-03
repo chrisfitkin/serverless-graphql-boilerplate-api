@@ -1,7 +1,7 @@
 const dynamoose = require("./dynamoose");
 
-// Post Model
-const postSchema = new dynamoose.Schema({
+// User Model
+const userSchema = new dynamoose.Schema({
   id: {
     type: String,
     hashKey: true,
@@ -17,6 +17,6 @@ const postSchema = new dynamoose.Schema({
   }
 });
 
-const UserModel = dynamoose.model("users", postSchema);
+const UserModel = dynamoose.model("users", userSchema);
 
-module.exports = { postSchema, UserModel };
+module.exports = { userSchema, UserModel };

@@ -62,6 +62,12 @@ DynamoDB: http://localhost:8000/shell
       username,
       email
     }
+    comments {
+      body
+      user {
+        username
+      }
+    }
 	}
 }
 ```
@@ -77,6 +83,25 @@ DynamoDB: http://localhost:8000/shell
     posts {
       title
     }
+    comments {
+      body
+      post {
+        title
+      }
+    }
+  } 
+}
+```
+
+### Comments
+```gql
+{ 
+  comments 
+  { 
+    id
+    body
+    post { title }
+    user { username }
   } 
 }
 ```
@@ -181,6 +206,8 @@ The following resources were used in part to develop this project.
 * https://github.com/serverless/serverless-graphql
 * https://medium.freecodecamp.org/five-common-problems-in-graphql-apps-and-how-to-fix-them-ac74d37a293c
 * https://www.apollographql.com/docs/react/advanced/caching.html
+* https://aws.amazon.com/blogs/aws/new-auto-scaling-for-amazon-dynamodb/
+* https://www.npmjs.com/package/dynamoose-to-cloudformation
 
 ## Roadmap
 
@@ -188,13 +215,43 @@ The following resources were used in part to develop this project.
 - [x] Serve GraphQL server
 - [x] Provide Dynamoose models in GraphQL context
 - [x] Create sample data with faker.js
-- [x] Add GraphQL Query examples for posts, comments, and users
-- [ ] Rewrite posts.user field as index in Yaml config and User.posts Resolver
+- [ ] Migrate Roadmap to ROADMAP.md with phases
+- [ ] Create User, Post, and Comment resources
+- [ ] Tag project release versions
+- [ ] Add create, edit, and delete Mutations
+  - User
+  - Post
+  - Comment
+- [ ] Add Mutation examples
+  - Post
+- [ ] Add GraphQL Query examples for posts, comments, and users
+- [ ] Test and document AWS deployment
+- [ ] Rewrite posts.user field as secondary index in Yaml config and Resolvers
+  - User.posts to query posts.user index
+  - User.comments to query comments.user index
+  - Comments.user
+  - Comments.post
+  - getUserByEmail
+- [ ] Add query example for get comments by post
 - [ ] Automatically restart (forever) DynamoDB in Docker
+- [ ] Add created and updated timestamps to posts, comments, and users
 - [ ] Implement GraphQL Connectors for request caching
 - [ ] Implement pagination, limit, and offset
+- [ ] Add totalCount example
 - [ ] apollo-server-cache-redis
 - [ ] Add authentication
+- [ ] Add `active` field as DynamoDB Index and GraphQL Query filter for posts, comments, and users
+- [ ] Limit creation endpoints to authenticated users
+- [ ] Limit edit & delete endpoints to admins and authors
+- [ ] Set author information based on logged in user in Mutations
 - [ ] Add Node traversal example
-
+- [ ] Add find user by email example
+- [ ] Configure autoscaling on AWS DynamoDB resources
+- [ ] Add DOCKER.md documentation file
+- [ ] Add client example
+- [ ] Generate DynamoDB table cloudformation definitions from Dynamoose model
+- [ ] Convert sample data to static JSON with generator npm script
+- [ ] Document best practices for DynamoDB indices and lookup fields
+- [ ] Breakup documentation into multiple files for setup, query examples, code explanation, extending, roadmap, and references
+- [ ] Include greenkeeper.io
 
