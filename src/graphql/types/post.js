@@ -21,7 +21,9 @@ const typeDef = gql`
 const resolvers = {
   Query: {
     post: (root, { id }, { Post }) => Post.get({ id }),
-    posts: (root, args, { Post }) => {
+    posts: (root, args, context) => {
+      console.log("context", context);
+      const { Post } = context;
       const scanPosts = Post.scan().exec();
       return scanPosts;
     }
