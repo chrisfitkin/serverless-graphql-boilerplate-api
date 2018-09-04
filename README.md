@@ -206,13 +206,13 @@ The following resources were used in part to develop this project.
 * https://aws.amazon.com/blogs/aws/new-auto-scaling-for-amazon-dynamodb/
 * https://www.npmjs.com/package/dynamoose-to-cloudformation
 
-## Roadmap
+## Backlog
 
 - [x] Run Lambda & DynamoDB in Docker
 - [x] Serve GraphQL server
 - [x] Provide Dynamoose models in GraphQL context
 - [x] Create sample data with faker.js
-- [ ] Migrate Roadmap to ROADMAP.md with phases
+- [ ] Migrate Backlog to BACKLOG.md with epics
 - [x] Create User, Post, and Comment resources
 - [ ] Add testing and test coverage to server, types, schema, resolvers, and models
 - [x] Add linting rules
