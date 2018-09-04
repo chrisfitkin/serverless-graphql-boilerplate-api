@@ -1,4 +1,4 @@
-const { gql } = require("apollo-server-lambda");
+const { gql } = require('apollo-server-lambda');
 
 const typeDef = gql`
   extend type Query {
@@ -18,16 +18,15 @@ const typeDef = gql`
 const resolvers = {
   Query: {
     post: (root, { id }, { Post }) => Post.get({ id }),
-    posts: (root, args, { Post }) => Post.scan().exec()
+    posts: (root, args, { Post }) => Post.scan().exec(),
   },
   Post: {
     user: ({ user }, args, { User }) => User.get({ id: user }),
-    comments: ({ id }, args, { Comment }) =>
-      Comment.scan({ post: { eq: id } }).exec()
-  }
+    comments: ({ id }, args, { Comment }) => Comment.scan({ post: { eq: id } }).exec(),
+  },
 };
 
 module.exports = {
   typeDef,
-  resolvers
+  resolvers,
 };

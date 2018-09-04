@@ -214,7 +214,8 @@ The following resources were used in part to develop this project.
 - [x] Create sample data with faker.js
 - [ ] Migrate Roadmap to ROADMAP.md with phases
 - [x] Create User, Post, and Comment resources
-- [ ] Add testing and test coverage to server, types, schema, and models
+- [ ] Add testing and test coverage to server, types, schema, resolvers, and models
+- [ ] Add linting and enforcement
 - [ ] Tag project release versions
 - [ ] Add create, edit, and delete Mutations
   - User
@@ -236,6 +237,7 @@ The following resources were used in part to develop this project.
 - [ ] Implement GraphQL Connectors for request caching
 - [ ] Implement pagination, limit, and offset
 - [ ] Add totalCount example
+- [ ] Add Winston logger
 - [ ] apollo-server-cache-redis
 - [ ] Add authentication
 - [ ] Add `active` field as DynamoDB Index and GraphQL Query filter for posts, comments, and users

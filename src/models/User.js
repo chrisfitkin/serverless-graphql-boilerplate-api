@@ -1,22 +1,22 @@
-const dynamoose = require("./dynamoose");
+const dynamoose = require('./dynamoose');
 
 // User Model
 const userSchema = new dynamoose.Schema({
   id: {
     type: String,
     hashKey: true,
-    required: true
+    required: true,
   },
   username: {
     type: String,
-    index: true
+    index: true,
   },
   email: {
     type: String,
-    index: true
-  }
+    index: true,
+  },
 });
 
-const UserModel = dynamoose.model("users", userSchema);
+const UserModel = dynamoose.model('users', userSchema);
 
 module.exports = { userSchema, UserModel };
