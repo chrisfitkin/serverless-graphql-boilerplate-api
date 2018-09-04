@@ -33,7 +33,7 @@
     "serverless-offline": "^3.25.9"
   },
   "scripts": {
-    "test": "nyc mocha \"src/**/*.spec.js\" --timeout=3000",
+    "test": "nyc mocha \"src/*.spec.js\" \"src/**/*.spec.js\" --timeout=3000",
     "test:only": "mocha \"src/**/*.spec.js\"",
     "dev": "npm run lint && nodemon --watch src --exec serverless offline",
     "dynamodb:install": "sls dynamodb install",
@@ -59,7 +59,8 @@
     "branches": 99,
     "include": [
       "src/**/*.js",
-      "src/*.js"
+      "src/*.js",
+      "src/server.js"
     ],
     "exclude": [
       "**/*.spec.js",

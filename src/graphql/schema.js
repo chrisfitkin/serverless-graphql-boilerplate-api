@@ -22,7 +22,7 @@ const Query = gql`
   }
 `;
 
-const aboutResolvers = {
+const rootResolvers = {
   Query: {
     about: () => ({
       name,
@@ -36,5 +36,6 @@ const aboutResolvers = {
 
 module.exports = {
   typeDefs: [Query, Post, User, Comment],
-  resolvers: merge({}, postResolvers, userResolvers, commentResolvers, aboutResolvers),
+  resolvers: merge({}, postResolvers, userResolvers, commentResolvers, rootResolvers),
+  rootResolvers,
 };
