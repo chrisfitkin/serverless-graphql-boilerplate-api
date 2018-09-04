@@ -215,7 +215,7 @@ The following resources were used in part to develop this project.
 - [ ] Migrate Roadmap to ROADMAP.md with phases
 - [x] Create User, Post, and Comment resources
 - [ ] Add testing and test coverage to server, types, schema, resolvers, and models
-- [ ] Add linting and enforcement
+- [x] Add linting rules
 - [ ] Tag project release versions
 - [ ] Add create, edit, and delete Mutations
   - User
@@ -231,6 +231,7 @@ The following resources were used in part to develop this project.
   - Comments.user
   - Comments.post
   - getUserByEmail
+- [ ] Enforce linting rules on git pre-commit hook
 - [ ] Add query example for get comments by post
 - [ ] Automatically restart (forever) DynamoDB in Docker
 - [ ] Add created and updated timestamps to posts, comments, and users
