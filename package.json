@@ -18,6 +18,7 @@
   },
   "devDependencies": {
     "chai": "^4.1.2",
+    "chai-spies": "^1.0.0",
     "core-js": "^2.5.7",
     "eslint": "^5.5.0",
     "eslint-config-airbnb": "^17.1.0",
@@ -26,12 +27,14 @@
     "eslint-plugin-react": "^7.11.1",
     "mocha": "^5.2.0",
     "nodemon": "^1.18.3",
+    "nyc": "^13.0.1",
     "serverless": "^1.30.1",
     "serverless-dynamodb-local": "^0.2.33",
     "serverless-offline": "^3.25.9"
   },
   "scripts": {
-    "test": "mocha \"src/**/*.spec.js\"",
+    "test": "nyc mocha \"src/**/*.spec.js\" --timeout=3000",
+    "test:only": "mocha \"src/**/*.spec.js\"",
     "dev": "npm run lint && nodemon --watch src --exec serverless offline",
     "dynamodb:install": "sls dynamodb install",
     "dynamodb": "sls dynamodb start",
@@ -46,5 +49,21 @@
     "lint:fix": "eslint --fix src"
   },
   "author": "Chris Fitkin @chrisfitkin",
-  "license": "MIT"
+  "license": "MIT",
+  "nyc": {
+    "check-coverage": true,
+    "per-file": true,
+    "lines": 99,
+    "statements": 99,
+    "functions": 99,
+    "branches": 99,
+    "include": [
+      "src/**/*.js",
+      "src/*.js"
+    ],
+    "exclude": [
+      "**/*.spec.js",
+      "build"
+    ]
+  }
 }
