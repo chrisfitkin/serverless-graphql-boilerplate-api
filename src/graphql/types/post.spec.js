@@ -118,6 +118,64 @@ describe('GraphQL Post Schema', () => {
 });
 
 describe('GraphQL Post Resolvers', () => {
+  test('Query.post(id: String!)', () => {
+    // Mock the Dynamoose Post Model
+    const mockPostModel = chai.spy.interface({
+      get: ({ id }) => ({
+        id,
+        body: 'Lorem',
+        title: 'Lorem',
+        user: '1',
+        comments: ['1', '1'],
+      }),
+    });
+
+    const args = { id: '1' };
+    const ctx = { Post: mockPostModel };
+
+    const result = resolvers.Query.post(null, args, ctx);
+
+    expect(mockPostModel.get).to.be.called.once.with({ id: '1' });
+    expect(result).to.deep.equal({
+      id: '1',
+      body: 'Lorem',
+      title: 'Lorem',
+      user: '1',
+      comments: ['1', '1'],
+    });
+  });
+  test('Query.posts', () => {
+    // Mock the Dynamoose Post Model
+    const mockPostModel = chai.spy.interface({
+      scan: () => ({
+        exec: () => [
+          {
+            id: '1',
+            body: 'Lorem',
+            title: 'Lorem',
+            user: '1',
+            comments: ['1', '1'],
+          },
+        ],
+      }),
+    });
+
+    const args = {};
+    const ctx = { Post: mockPostModel };
+
+    const result = resolvers.Query.posts(null, args, ctx);
+
+    expect(mockPostModel.scan).to.be.called.once.with();
+    expect(result).to.deep.equal([
+      {
+        id: '1',
+        body: 'Lorem',
+        title: 'Lorem',
+        user: '1',
+        comments: ['1', '1'],
+      },
+    ]);
+  });
   test('Post.user', () => {
     const post = {
       id: '1',
