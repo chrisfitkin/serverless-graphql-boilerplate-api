@@ -7,7 +7,7 @@ const typeDef = gql`
   }
 
   type Post {
-    id: String!
+    id: ID!
     title: String!
     body: String
     user: User

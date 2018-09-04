@@ -205,6 +205,11 @@ The following resources were used in part to develop this project.
 * https://www.apollographql.com/docs/react/advanced/caching.html
 * https://aws.amazon.com/blogs/aws/new-auto-scaling-for-amazon-dynamodb/
 * https://www.npmjs.com/package/dynamoose-to-cloudformation
+* https://github.com/mugli/learning-graphql/blog/master/7.%20Depp%20Dive%20into%20GraphQL%20Type%20System.md
+* https://hackernoon.com/extensive-graphql-testing-57e8760f1c25
+* https://github.com/dynamoosejs/dynamoose/issues/270
+
+---
 
 ## Backlog
 
@@ -255,4 +260,6 @@ The following resources were used in part to develop this project.
 - [ ] Document best practices for DynamoDB indices and lookup fields
 - [ ] Breakup documentation into multiple files for setup, query examples, code explanation, extending, roadmap, and references
 - [ ] Include greenkeeper.io
+- [ ] Cast email fields as custom scalar value
+- 
 
