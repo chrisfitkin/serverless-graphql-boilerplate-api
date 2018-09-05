@@ -309,6 +309,7 @@ The following resources were used in part to develop this project.
   - [ ] Add create and get(id) examples to getting started
   - [ ] Add DOCKER.md documentation file
   - [ ] Add links and explanations to Library Dependencies
+  - [ ] Add epics functionality to readme description below main title (performance, auth, etc.)
 - Epic 9: Admin client
   - [ ] Migrate `src` code to `src/server`
   - [ ] Run React Admin in docker locally
