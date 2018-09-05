@@ -218,7 +218,10 @@ The following resources were used in part to develop this project.
   - [ ] Tag & enforce project release versions
   - [ ] Add GraphQL Query examples for posts, comments, and users
 - Epic 2: Testing
-  - [ ] Add testing and test coverage to server, types, schema, resolvers, and models
+  - [ ] Implement Mocha testing for Post type
+  - [ ] Add testing and test coverage to server
+  - [ ] Add testing for comment type
+  - [ ] Add testing for user type
   - [x] Add linting rules
   - [ ] Enforce linting rules on git pre-commit hook
 - Epic 3: Extend Query & Mutation functions
@@ -279,6 +282,7 @@ The following resources were used in part to develop this project.
   - [ ] Complete explore code section
   - [ ] Add create and get(id) examples to getting started
   - [ ] Add DOCKER.md documentation file
+  - [ ] Add links and explanations to Library Dependencies
 - Epic 9: Admin client
   - [ ] Migrate `src` code to `src/server`
   - [ ] Run React Admin in docker locally
