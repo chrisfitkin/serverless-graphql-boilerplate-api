@@ -231,9 +231,9 @@ The following resources were used in part to develop this project.
 - Epic 3: Extend Query & Mutation functions
   - [ ] Add create, edit, and delete Mutations
     - [ ] User
-    - [ ] Post
+    - [x] Post
     - [ ] Comment
-  - [ ] Add Mutation examples for Posts
+  - [ ] Add Mutation example documentation for Posts
   - [ ] Implement pagination, limit, and offset
   - [ ] Add totalCount example
   - [ ] Coerce Dynamoose validation errors into GraphQL errors

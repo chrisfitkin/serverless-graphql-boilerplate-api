@@ -8,7 +8,9 @@ const typeDef = gql`
   }
 
   extend type Mutation {
-    createPost(input: PostInput): Post
+    createPost(post: PostInput): Post
+    updatePost(post: PostInput): Post
+    deletePost(id: ID): String
   }
 
   type Post {
@@ -20,6 +22,7 @@ const typeDef = gql`
   }
 
   input PostInput {
+    id: ID
     title: String
     body: String
     user: ID
@@ -36,12 +39,23 @@ const resolvers = {
     comments: ({ id }, args, { Comment }) => Comment.model.scan({ post: { eq: id } }).exec(),
   },
   Mutation: {
-    createPost: (root, { input: { title, body, user } }, { Post }) => Post.model.create({
+    createPost: (root, { post: { title, body, user } }, { Post }) => Post.model.create({
       id: uuid(),
       title,
       body,
       user,
     }),
+    updatePost: (root, { post: { id, title, body } }, { Post }) => Post.model.update(
+      { id },
+      {
+        title,
+        body,
+      },
+    ),
+    deletePost: async (root, { id }, { Post }) => {
+      await Post.model.delete({ id }, { update: true });
+      return 'Success';
+    },
   },
 };
 

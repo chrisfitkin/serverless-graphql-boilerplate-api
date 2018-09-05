@@ -17,6 +17,12 @@ const Query = gql`
     _empty: String
   }
 
+  type Response {
+    statusCode: Int
+    status: String
+    message: String
+  }
+
   type About {
     name: String
     version: String
