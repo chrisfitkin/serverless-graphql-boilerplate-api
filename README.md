@@ -116,7 +116,7 @@ One of the greatest benefits of GraphQL is being able to traverse multiple level
         email
         comments {
           post {
-						title
+            title
             user {
               username
             }
