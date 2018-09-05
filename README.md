@@ -208,52 +208,87 @@ The following resources were used in part to develop this project.
 
 ## Backlog
 
-- [x] Run Lambda & DynamoDB in Docker
-- [x] Serve GraphQL server
-- [x] Provide Dynamoose models in GraphQL context
-- [x] Create sample data with faker.js
-- [ ] Migrate Backlog to BACKLOG.md with epics
-- [x] Create User, Post, and Comment resources
-- [ ] Add testing and test coverage to server, types, schema, resolvers, and models
-- [x] Add linting rules
-- [ ] Tag project release versions
-- [ ] Add create, edit, and delete Mutations
-  - User
-  - Post
-  - Comment
-- [ ] Add Mutation examples
-  - Post
-- [ ] Add GraphQL Query examples for posts, comments, and users
-- [ ] Test and document AWS deployment
-- [ ] Rewrite posts.user field as secondary index in YML config and Resolvers
-  - User.posts to query posts.user index
-  - User.comments to query comments.user index
-  - Comments.user
-  - Comments.post
-  - getUserByEmail
-- [ ] Enforce linting rules on git pre-commit hook
-- [ ] rewrite Query.posts.scan() as dataLoader function
-- [ ] Add query example for get comments by post
-- [ ] Automatically restart (forever) DynamoDB in Docker
-- [ ] Add created and updated timestamps to posts, comments, and users
-- [ ] Implement GraphQL Connectors for request caching
-- [ ] Implement pagination, limit, and offset
-- [ ] Add totalCount example
-- [ ] Add Winston logger
-- [ ] apollo-server-cache-redis
-- [ ] Add authentication
-- [ ] Add `active` field as DynamoDB Index and GraphQL Query filter for posts, comments, and users
-- [ ] Limit creation endpoints to authenticated users
-- [ ] Limit edit & delete endpoints to admins and authors
-- [ ] Set author information based on logged in user in Mutations
-- [ ] Add Node traversal example
-- [ ] Add find user by email example
-- [ ] Configure autoscaling on AWS DynamoDB resources
-- [ ] Add DOCKER.md documentation file
-- [ ] Add client example
-- [ ] Generate DynamoDB table cloudformation definitions from Dynamoose model
-- [ ] Convert sample data to static JSON with generator npm script
-- [ ] Document best practices for DynamoDB indices and lookup fields
-- [ ] Breakup documentation into multiple files for setup, query examples, code explanation, extending, roadmap, and references
-- [ ] Include greenkeeper.io
+- Epic 1: GraphQL in Docker
+  - [x] Run Lambda & DynamoDB in Docker
+  - [x] Serve GraphQL server
+  - [x] Provide Dynamoose models in GraphQL context
+  - [x] Create sample data with faker.js
+  - [ ] Migrate Backlog to BACKLOG.md with epics
+  - [x] Create User, Post, and Comment resources
+  - [ ] Tag & enforce project release versions
+  - [ ] Add GraphQL Query examples for posts, comments, and users
+- Epic 2: Testing
+  - [ ] Add testing and test coverage to server, types, schema, resolvers, and models
+  - [x] Add linting rules
+  - [ ] Enforce linting rules on git pre-commit hook
+- Epic 3: Extend Query & Mutation functions
+  - [ ] Add create, edit, and delete Mutations
+    - [ ] User
+    - [ ] Post
+    - [ ] Comment
+  - [ ] Add Mutation examples for Posts
+  - [ ] Implement pagination, limit, and offset
+  - [ ] Add totalCount example
+- Epic 3: Deployment
+  - [ ] Test AWS deployment 
+  - [ ] document AWS deployment
+  - [ ] Provide CI example
+  - [ ] Enforce testing in CI
+  - [ ] Configure autoscaling on AWS DynamoDB resources
+- Epic 4: Performance
+  - [x] Rewrite Model.get functions using DataLoders
+  - [ ] Rewrite posts.user field as secondary index in YML config and Resolvers
+    - [ ]User.posts to query posts.user index
+    - [ ]User.comments to query comments.user index
+    - [ ]Comments.user
+    - [ ]Comments.post
+    - [ ]getUserByEmail
+  - [ ] Rewrite Query.posts.scan() as DataLoader function
+  - [ ] Implement apollo-server-cache-redis locally with docker-compose
+  - [ ] Setup AWS redis server deployment
+- Epic 5: Extend models & data
+  - [ ] Add created and updated timestamps to posts, comments, and users
+  - [ ] Populate created and updated fields automatically
+  - [ ] Add `active` field as DynamoDB Index and GraphQL Query argument for posts, comments, and users
+- Epic 6: Authentication & Authorization
+  - [ ] Add authentication functions
+  - [ ] Use JWT (JSON Web Tocken) with Bearer auth
+  - [ ] Automatically add user to GraphQL context
+  - [ ] Use ACL config file in GraphQL context
+    - [ ] Configure allow/deny functions by role or authenticated boolean
+    - [ ] Limit create comment and post enpdoints to authenticated users
+    - [ ] Configure admin/owner function limitations
+      - [ ] Edit own Post, Comment
+      - [ ] Delete own Post, Comment
+      - [ ] Delete user (admin only)
+    - [ ] Allow public functions without authentication
+  - [ ] Separate public and private redis cache
+  - [ ] Automatically save createdBy & updatedBy user values
+- Epic 7: Developer Experience
+  - [ ] Convert sample data to static JSON with generator npm script
+  - [ ] Automatically restart (forever) DynamoDB in Docker
+  - [ ] Generate DynamoDB table cloudformation definitions from Dynamoose model
+  - [ ] Include greenkeeper.io
+  - [ ] Add Winston logger
+- Epic 8: Documentation
+  - [ ] Add query example for get comments by post
+  - [ ] Breakup documentation into multiple files for setup, query examples, code explanation, extending, roadmap, and references
+  - [ ] Add Node traversal example
+  - [ ] Add find user by email example
+  - [ ] Document best practices for DynamoDB indices and lookup fields
+  - [ ] Complete explore code section
+  - [ ] Add create and get(id) examples to getting started
+  - [ ] Add DOCKER.md documentation file
+- Epic 9: Admin client
+  - [ ] Migrate `src` code to `src/server`
+  - [ ] Run React Admin in docker locally
+  - [ ] Allow local config for remote endpoint hostname
+  - [ ] Connect to GraphQL API
+  - [ ] Implement authentication
+  - [ ] Post CRUD
+  - [ ] User CRUD
+  - [ ] Comment CRUD
+  - [ ] Limit lists and functions by authorized roles
+  - [ ] Create deployment example
+  - [ ] Document deployment using S3 hosting & Route53
 
