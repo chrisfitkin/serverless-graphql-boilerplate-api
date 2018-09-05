@@ -105,9 +105,27 @@ DynamoDB: http://localhost:8000/shell
 
 #### Node traversal
 
-One of the biggest benefits of GraphQL is being able to traverse multiple levels and complete circular references.  Here is an example
+One of the greatest benefits of GraphQL is being able to traverse multiple levels and complete circular references in the data graph.  Here is a deeply nested example.
 
 ```qql
+{
+  posts {
+  title
+    comments {
+      user {
+        email
+        comments {
+          post {
+						title
+            user {
+              username
+            }
+          }
+        }
+      }
+    }
+  }
+}
 ```
 
 ---
@@ -245,6 +263,7 @@ The following resources were used in part to develop this project.
   - [ ] Configure autoscaling on AWS DynamoDB resources
 - Epic 4: Performance
   - [x] Rewrite Model.get functions using DataLoders
+  - [x] Document DataLoader example
   - [ ] Rewrite posts.user field as secondary index in YML config and Resolvers
     - [ ] User.posts to query posts.user index
     - [ ] User.comments to query comments.user index
