@@ -65,7 +65,7 @@ DynamoDB: http://localhost:8000/shell
         username
       }
     }
-	}
+  }
 }
 ```
 
@@ -238,11 +238,11 @@ The following resources were used in part to develop this project.
 - Epic 4: Performance
   - [x] Rewrite Model.get functions using DataLoders
   - [ ] Rewrite posts.user field as secondary index in YML config and Resolvers
-    - [ ]User.posts to query posts.user index
-    - [ ]User.comments to query comments.user index
-    - [ ]Comments.user
-    - [ ]Comments.post
-    - [ ]getUserByEmail
+    - [ ] User.posts to query posts.user index
+    - [ ] User.comments to query comments.user index
+    - [ ] Comments.user
+    - [ ] Comments.post
+    - [ ] getUserByEmail
   - [ ] Rewrite Query.posts.scan() as DataLoader function
   - [ ] Implement apollo-server-cache-redis locally with docker-compose
   - [ ] Setup AWS redis server deployment
