@@ -8,6 +8,8 @@
     "apollo-server": "^2.0.5",
     "apollo-server-lambda": "^2.0.0-xrc.11",
     "aws-sdk": "^2.136.0",
+    "core-js": "^2.5.7",
+    "dataloader": "^1.4.0",
     "dotenv": "^6.0.0",
     "dynamoose": "^0.8.7",
     "faker": "^4.1.0",

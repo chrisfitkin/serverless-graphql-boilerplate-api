@@ -232,6 +232,7 @@ The following resources were used in part to develop this project.
   - Comments.post
   - getUserByEmail
 - [ ] Enforce linting rules on git pre-commit hook
+- [ ] rewrite Query.posts.scan() as dataLoader function
 - [ ] Add query example for get comments by post
 - [ ] Automatically restart (forever) DynamoDB in Docker
 - [ ] Add created and updated timestamps to posts, comments, and users

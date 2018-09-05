@@ -12,6 +12,7 @@ RUN echo "deb http://http.debian.net/debian jessie-backports main" | \
 COPY package.json .
 RUN npm install # --quiet
 RUN npm install -g serverless --ignore-scripts spawn-sync
+RUN npm run dynamodb:install
 
 
 COPY . .

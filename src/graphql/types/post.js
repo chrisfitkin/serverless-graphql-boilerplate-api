@@ -17,12 +17,12 @@ const typeDef = gql`
 
 const resolvers = {
   Query: {
-    post: (root, { id }, { Post }) => Post.get({ id }),
-    posts: (root, args, { Post }) => Post.scan().exec(),
+    post: (root, { id }, { Post }) => Post.load(id),
+    posts: (root, args, { Post }) => Post.model.scan().exec(),
   },
   Post: {
-    user: ({ user }, args, { User }) => User.get({ id: user }),
-    comments: ({ id }, args, { Comment }) => Comment.scan({ post: { eq: id } }).exec(),
+    user: ({ user }, args, { User }) => User.load(user),
+    comments: ({ id }, args, { Comment }) => Comment.model.scan({ post: { eq: id } }).exec(),
   },
 };
 
