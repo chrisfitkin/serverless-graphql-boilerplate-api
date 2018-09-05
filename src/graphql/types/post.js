@@ -1,9 +1,14 @@
 const { gql } = require('apollo-server-lambda');
+const uuid = require('uuidv4');
 
 const typeDef = gql`
   extend type Query {
     post(id: String!): Post
     posts: [Post]
+  }
+
+  extend type Mutation {
+    createPost(input: PostInput): Post
   }
 
   type Post {
@@ -12,6 +17,12 @@ const typeDef = gql`
     body: String
     user: User
     comments: [Comment]
+  }
+
+  input PostInput {
+    title: String
+    body: String
+    user: ID
   }
 `;
 
@@ -23,6 +34,14 @@ const resolvers = {
   Post: {
     user: ({ user }, args, { User }) => User.load(user),
     comments: ({ id }, args, { Comment }) => Comment.model.scan({ post: { eq: id } }).exec(),
+  },
+  Mutation: {
+    createPost: (root, { input: { title, body, user } }, { Post }) => Post.model.create({
+      id: uuid(),
+      title,
+      body,
+      user,
+    }),
   },
 };
 

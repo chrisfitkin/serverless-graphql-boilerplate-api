@@ -205,6 +205,8 @@ The following resources were used in part to develop this project.
 * https://www.apollographql.com/docs/react/advanced/caching.html
 * https://aws.amazon.com/blogs/aws/new-auto-scaling-for-amazon-dynamodb/
 * https://www.npmjs.com/package/dynamoose-to-cloudformation
+* https://github.com/mugli/learning-graphql/blob/master/7.%20Deep%20Dive%20into%20GraphQL%20Type%20System.md
+* https://graphql.org/graphql-js/mutations-and-input-types/
 
 ## Backlog
 
@@ -219,6 +221,8 @@ The following resources were used in part to develop this project.
   - [ ] Add GraphQL Query examples for posts, comments, and users
 - Epic 2: Testing
   - [ ] Implement Mocha testing for Post type
+  - [ ] Refactor post type testing as reusable functions for models and resolvers
+  - [ ] Add testing for post type Mutation resolvers
   - [ ] Add testing and test coverage to server
   - [ ] Add testing for comment type
   - [ ] Add testing for user type
@@ -232,6 +236,7 @@ The following resources were used in part to develop this project.
   - [ ] Add Mutation examples for Posts
   - [ ] Implement pagination, limit, and offset
   - [ ] Add totalCount example
+  - [ ] Coerce Dynamoose validation errors into GraphQL errors
 - Epic 3: Deployment
   - [ ] Test AWS deployment 
   - [ ] document AWS deployment
@@ -253,6 +258,8 @@ The following resources were used in part to develop this project.
   - [ ] Add created and updated timestamps to posts, comments, and users
   - [ ] Populate created and updated fields automatically
   - [ ] Add `active` field as DynamoDB Index and GraphQL Query argument for posts, comments, and users
+  - [ ] Rewrite user.email field as custom scalar type
+  - [ ] Document custom scalar type example in Explore Code
 - Epic 6: Authentication & Authorization
   - [ ] Add authentication functions
   - [ ] Use JWT (JSON Web Tocken) with Bearer auth
