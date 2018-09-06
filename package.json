@@ -1,9 +1,9 @@
 {
-  "name": "aws-serverless-graphql-docker",
+  "name": "serverless-graphql-boilerplate-api",
   "version": "1.1.0",
   "description": "A Serverless GraphQL API on AWS Lambda and DynamoDB with local Docker development.",
   "main": "handler.js",
-  "repository": "https://github.com/chrisfitkin/aws-serverless-graphql-docker",
+  "repository": "https://github.com/chrisfitkin/serverless-graphql-boilerplate-api",
   "dependencies": {
     "apollo-server": "^2.0.5",
     "apollo-server-lambda": "^2.0.0-xrc.11",

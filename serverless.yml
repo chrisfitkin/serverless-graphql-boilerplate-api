@@ -1,4 +1,4 @@
-service: aws-serverless-graphql-docker
+service: serverless-graphql-boilerplate-api
 
 plugins:
   - serverless-dynamodb-local
@@ -21,9 +21,11 @@ functions:
       - http:
           path: graphql
           method: get
+          cors: true
       - http:
           path: graphql
           method: post
+          cors: true
 
 custom:
   stage: ${env:SLS_STAGE, opt:stage, self:provider.stage}

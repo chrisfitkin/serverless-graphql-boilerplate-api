@@ -1,7 +1,9 @@
 
-# AWS Lambda DynamoDB Apollo GraphQL Docker
+# Serverless GraphQL API Boilerplate
 
 A Serverless GraphQL API on AWS Lambda and DynamoDB with local Docker development.
+
+TODO: Why DynamoDB / Serverless
 
 ## Getting Started with Docker
 
@@ -225,6 +227,10 @@ The following resources were used in part to develop this project.
 * https://www.npmjs.com/package/dynamoose-to-cloudformation
 * https://github.com/mugli/learning-graphql/blob/master/7.%20Deep%20Dive%20into%20GraphQL%20Type%20System.md
 * https://graphql.org/graphql-js/mutations-and-input-types/
+* https://github.com/gitjzu/serverless-graphql-boilerplate
+* https://github.com/react-boilerplate/react-boilerplate
+* https://github.com/graphql-compose/graphql-compose-mongoose
+* https://github.com/marmelab/react-admin/tree/master/packages/ra-data-graphql-simple
 
 ## Backlog
 
@@ -246,13 +252,22 @@ The following resources were used in part to develop this project.
   - [ ] Add testing for user type
   - [x] Add linting rules
   - [ ] Enforce linting rules on git pre-commit hook
+  - [ ] Complete 50% test coverage
+  - [ ] Complete 60% test coverage
+  - [ ] Complete 70% test coverage
+  - [ ] Complete 80% test coverage
+  - [ ] Complete 90% test coverage
+  - [ ] Complete 100% test coverage
 - Epic 3: Extend Query & Mutation functions
   - [ ] Add create, edit, and delete Mutations
     - [ ] User
     - [x] Post
     - [ ] Comment
   - [ ] Add Mutation example documentation for Posts
-  - [ ] Implement pagination, limit, and offset
+  - [ ] Add filter support with filter input type and model.query
+  - [ ] Extract dynamoose resolvers into HOC
+  - [ ] Implement pagination with limit and offset
+  - [ ] Implement sort
   - [ ] Add totalCount example
   - [ ] Coerce Dynamoose validation errors into GraphQL errors
 - Epic 3: Deployment
@@ -310,9 +325,13 @@ The following resources were used in part to develop this project.
   - [ ] Add DOCKER.md documentation file
   - [ ] Add links and explanations to Library Dependencies
   - [ ] Add epics functionality to readme description below main title (performance, auth, etc.)
+  - [ ] Add performance readme section
+  - [ ] Add authentication & authorization readme section
+  - [ ] Explain DynamoDB & Serverless choices
 - Epic 9: Admin client
-  - [ ] Migrate `src` code to `src/server`
+  - [ ] Create additional admin client repo
   - [ ] Run React Admin in docker locally
+  - [ ] Update graphql grammer to match da-graphql-client-simple
   - [ ] Allow local config for remote endpoint hostname
   - [ ] Connect to GraphQL API
   - [ ] Implement authentication

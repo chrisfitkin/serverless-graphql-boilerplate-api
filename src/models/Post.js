@@ -15,7 +15,7 @@ const postSchema = new dynamoose.Schema({
   body: {
     type: String,
   },
-  user: {
+  user_id: {
     type: String,
     // index: true // Add index to make searchable
   },
